@@ -1,0 +1,11 @@
+system,domain,best_trivial,best_signal,best_auroc,best_lp_signal,best_lp_auroc,checker_auroc,n_signals_beating_trivial,winners
+vanilla_rag,cuad,0.33,lp_margin,0.7644927536231884,lp_margin,0.7644927536231884,,0,
+vanilla_rag,financebench,0.0,lp_margin,0.7666666666666666,lp_margin,0.7666666666666666,,0,
+vanilla_rag,hotpotqa,0.23,lr_lp_transfer,0.6388028895768834,lr_lp_transfer,0.6388028895768834,,0,
+vanilla_rag,pubmedqa,0.1,lp_mean,0.6525252525252525,lp_mean,0.6525252525252525,,0,
+vanilla_rag,squad2,0.5,lp_first5,0.7555555555555555,lp_margin,0.6974747474747475,,0,
+improved_vanilla,cuad,0.33,lp_margin,0.8155038759689923,lp_margin,0.8155038759689923,,0,
+improved_vanilla,financebench,0.0,lp_margin,0.7554383651944627,lp_margin,0.7554383651944627,,1,lp_min
+improved_vanilla,hotpotqa,0.47,lp_margin,0.5694444444444444,lp_margin,0.5694444444444444,,0,
+improved_vanilla,pubmedqa,0.1,lp_mean,0.6525252525252525,lp_mean,0.6525252525252525,,0,
+improved_vanilla,squad2,0.5,lp_first5,0.679861111111111,lp_first,0.6472222222222221,,0,

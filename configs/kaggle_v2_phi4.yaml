@@ -1,0 +1,14 @@
+# Stage 2 Part E (Kaggle): a new model family, Microsoft Phi-4 14B (4-bit, ~9 GB), on the SAME shared subset as Part D
+# (100 questions per domain, seed 0 -> the questions of v2_qwen32b / v2_gemma27b) and the same 6 systems in the same priority order.
+# Mostly synthetic-data training: a contrast to Qwen2.5-14B at the same size.
+name: v2_phi4
+domains: [squad2, hotpotqa, pubmedqa, cuad, financebench]
+systems: [vanilla_rag, trust_rag, removed_trust, oracle_vanilla, improved_vanilla, removed_vanilla]   # priority order, see kaggle_v2_qwen32b.yaml
+use_plans: true
+limit: 100
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "phi4:14b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 4          # = OLLAMA_NUM_PARALLEL (the notebook reads this value); a 9 GB model leaves room for a 4th parallel slot

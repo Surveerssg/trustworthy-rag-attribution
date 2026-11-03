@@ -1,0 +1,15 @@
+{
+  "weights": {
+    "squad2": 1.0,
+    "hotpotqa": 1.0,
+    "pubmedqa": 1.0,
+    "cuad": 0.7,
+    "financebench": 0.0
+  },
+  "default_for_other_domains": 0.9,
+  "n_labels": 20,
+  "seed": 0,
+  "fitted_on": "v2_llama8b/oracle_vanilla",
+  "score": "w * sim_sent + (1 - w) * nli_set (nli_set with tie-break)",
+  "written": "2026-10-26"
+}

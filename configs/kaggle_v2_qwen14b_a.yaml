@@ -1,0 +1,14 @@
+# Stage 2 Part C (Kaggle): a third model size (Qwen2.5-14B, 4-bit) with the SAME 7 systems as Part A (+ trust_rag) so every analysis
+# (log-prob scale trend, attribution, evidence removal, refusal vs scale) can be repeated unchanged. Raw per-token log-probs are stored.
+# Two copies of the model (one per T4) split the domains; both write into the same run folder (different files).
+name: v2_qwen14b
+domains: [squad2, hotpotqa, financebench]
+systems: [vanilla_rag, improved_vanilla, oracle_vanilla, removed_vanilla, trust_rag, improved_trust, removed_trust]   # core (log-prob + attribution + removal analyses) first
+use_plans: true
+limit: null
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "qwen2.5:14b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 3

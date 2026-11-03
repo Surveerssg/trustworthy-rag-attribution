@@ -1,0 +1,17 @@
+# Stage 2 Part E (Kaggle): second financial dataset, TAT-QA (hybrid table + text excerpts of annual reports), model qwen2.5:1.5b.
+# Replicates the FinanceBench attribution result on new data and tests its cause: every question is labelled by where the answer
+# comes from (table / text / table-text) and whether it is computed (arithmetic, count) or quoted (span, multi-span).
+# TAT-QA questions do not name the company, so natural retrieval over the pooled corpus is ill-posed: only the oracle (gold
+# guaranteed) and evidence-removal conditions are run. Contexts come from data/plans/tatqa.jsonl (python -m scripts.prepare_tatqa).
+# Pre-registered analysis: paper/findings/analysis_plan_tatqa.md.
+name: tq_qwen1.5b
+domains: [tatqa]
+systems: [oracle_vanilla, removed_trust, oracle_trust]   # priority order: attribution (headline), then the refusal pair
+use_plans: true
+limit: null
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "qwen2.5:1.5b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 4

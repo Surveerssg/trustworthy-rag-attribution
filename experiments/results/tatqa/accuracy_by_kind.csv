@@ -1,0 +1,8 @@
+model,computed,quoted
+Gemma-3-27B,0.678,0.664
+Llama-3.1-8B,0.522,0.6
+Mistral-Small-24B,0.578,0.627
+Phi-4-14B,0.667,0.627
+Qwen2.5-1.5B,0.2,0.655
+Qwen2.5-14B,0.511,0.664
+Qwen2.5-32B,0.644,0.673

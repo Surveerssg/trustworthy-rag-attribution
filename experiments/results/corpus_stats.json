@@ -1,0 +1,47 @@
+{
+  "squad2": {
+    "domain": "squad2",
+    "docs": 1204,
+    "chunks": 1372,
+    "avg_chunk_words": 114.42201166180757,
+    "questions": 500,
+    "answerable_with_gold_chunk": 250,
+    "answerable": 250
+  },
+  "pubmedqa": {
+    "domain": "pubmedqa",
+    "docs": 1000,
+    "chunks": 1688,
+    "avg_chunk_words": 126.60011848341232,
+    "questions": 200,
+    "answerable_with_gold_chunk": 200,
+    "answerable": 200
+  },
+  "cuad": {
+    "domain": "cuad",
+    "docs": 60,
+    "chunks": 3824,
+    "avg_chunk_words": 155.32296025104603,
+    "questions": 300,
+    "answerable_with_gold_chunk": 200,
+    "answerable": 200
+  },
+  "hotpotqa": {
+    "domain": "hotpotqa",
+    "docs": 9771,
+    "chunks": 10336,
+    "avg_chunk_words": 85.87751547987617,
+    "questions": 200,
+    "answerable_with_gold_chunk": 200,
+    "answerable": 200
+  },
+  "financebench": {
+    "domain": "financebench",
+    "docs": 11917,
+    "chunks": 48268,
+    "avg_chunk_words": 146.8787188199221,
+    "questions": 150,
+    "answerable_with_gold_chunk": 149,
+    "answerable": 150
+  }
+}

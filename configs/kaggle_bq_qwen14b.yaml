@@ -1,0 +1,13 @@
+# Part G (Kaggle): second medical dataset, BioASQ (200 questions, sentence-level expert snippets as gold), model qwen2.5:14b.
+# Pre-registered analysis: paper/findings/analysis_plan_bioasq.md. Contexts: data/plans/bioasq.jsonl (python -m scripts.prepare_bioasq).
+name: bq_qwen14b
+domains: [bioasq]
+systems: [oracle_vanilla, vanilla_rag, removed_trust, trust_rag]   # priority order: attribution, retrieval loss, then the refusal pair
+use_plans: true
+limit: null
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "qwen2.5:14b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 4

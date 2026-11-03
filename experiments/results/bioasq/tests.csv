@@ -1,0 +1,4 @@
+test,diff,ci_lo,ci_hi,p,n,p_holm,verdict
+B2 sim_sent - nli_set (oracle),0.023273809523809526,-0.013261904761904765,0.05857261904761903,0.2186,1400,0.2186,not supported
+"B3 num_sim - sim_sent (oracle), CI inside +-0.05",0.00430952380952381,-0.009178571428571428,0.018154761904761903,0.5366,1400,,supported
+B4 retrieval loss (oracle - natural accuracy),0.037142857142857144,0.0,0.07571428571428572,0.0526,1400,0.1052,not supported

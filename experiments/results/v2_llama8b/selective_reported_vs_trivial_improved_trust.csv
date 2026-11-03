@@ -1,0 +1,6 @@
+domain,always_refuse,plain_rag_incl_implicit_refusals,best_trivial
+squad2,0.5,0.292,0.5
+hotpotqa,0.0,0.26,0.26
+pubmedqa,0.0,0.05,0.05
+cuad,0.3333333333333333,0.4766666666666667,0.4766666666666667
+financebench,0.0,0.02,0.02

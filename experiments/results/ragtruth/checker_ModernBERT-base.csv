@@ -1,0 +1,2 @@
+method,precision,recall,f1,f1_ci,auroc,threshold,source
+ours: ModernBERT-base fine-tuned on RAGTruth QA train (supervised),38.730158730158735,76.25,51.36842105263158,"[45.3,56.6]",0.8254391891891891,0.19657354846596717,this work (supervised)

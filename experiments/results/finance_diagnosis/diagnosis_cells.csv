@@ -1,0 +1,9 @@
+,,sim_sent,sim_sent,sim_chunk,sim_chunk,nli_window,nli_window,nli_set,nli_set
+,,mean,size,mean,size,mean,size,mean,size
+table_gold,answer_number,,,,,,,,
+gold mostly prose,"computed, not in passage",0.613,14,0.476,14,0.786,14,0.762,14
+gold mostly prose,no number / other,0.539,128,0.385,128,0.498,128,0.493,128
+gold mostly prose,number quoted in gold passage,0.524,100,0.395,100,0.599,100,0.609,100
+gold mostly table cells (>=30% of lines),"computed, not in passage",0.257,212,0.308,212,0.601,212,0.578,212
+gold mostly table cells (>=30% of lines),no number / other,0.303,116,0.358,116,0.41,116,0.441,116
+gold mostly table cells (>=30% of lines),number quoted in gold passage,0.283,272,0.225,272,0.503,272,0.5,272

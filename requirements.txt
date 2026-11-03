@@ -1,0 +1,25 @@
+# Python 3.12. Exact versions used for every mid-sem result (pip freeze of the project .venv).
+# GPU: install torch from the CUDA index first, e.g.
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+torch==2.5.1
+transformers==4.49.0
+sentence-transformers==5.7.0
+chromadb==1.5.9
+rank-bm25==0.2.2
+datasets==5.0.1
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+PyYAML==6.0.3
+tqdm==4.70.1
+requests==2.34.2
+httpx==0.28.1
+openai==3.19.2
+python-dotenv==1.2.3
+openpyxl==3.1.5
+pymupdf==1.28.2
+streamlit==1.64.0
+pytest
+markdown==3.11.2

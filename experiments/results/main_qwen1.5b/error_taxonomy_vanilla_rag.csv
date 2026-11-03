@@ -1,0 +1,6 @@
+domain,correct,evidence_ignored,evidence_misread,false_answer,retrieval_miss,n
+cuad,0.317,0.08,0.033,0.333,0.237,300
+financebench,0.227,0.087,0.033,0.0,0.653,150
+hotpotqa,0.495,0.275,0.205,0.0,0.025,200
+pubmedqa,0.48,0.195,0.32,0.0,0.005,200
+squad2,0.384,0.03,0.034,0.5,0.052,500

@@ -1,0 +1,10 @@
+method,precision,recall,f1,source,f1_ci,auroc
+Prompt gpt-3.5-turbo,18.8,84.4,30.8,published (RAGTruth Tab.5),,
+Prompt gpt-4-turbo,33.2,90.6,45.6,published (RAGTruth Tab.5),,
+SelfCheckGPT gpt-3.5-turbo,35.0,58.0,43.7,published (RAGTruth Tab.5),,
+LMvLM gpt-4-turbo,18.7,76.9,30.1,published (RAGTruth Tab.5),,
+Finetuned Llama-2-13B (supervised),61.6,76.3,68.2,published (RAGTruth Tab.5),,
+"ours: sim_sent (zero-shot, train-tuned t=0.333)",23.017408123791103,74.375,35.15509601181684,this work,"[30.6,39.9]",0.6198184121621622
+"ours: nli_chunk (zero-shot, train-tuned t=0.998)",26.111111111111114,88.125,40.285714285714285,this work,"[35.5,44.9]",0.7202913851351351
+"ours: nli_window (zero-shot, train-tuned t=0.998)",29.802955665024633,75.625,42.756183745583044,this work,"[37.2,47.8]",0.7375422297297297
+"ours: nli_set (zero-shot, train-tuned t=0.996)",29.86111111111111,80.625,43.58108108108108,this work,"[37.9,48.4]",0.7603040540540541

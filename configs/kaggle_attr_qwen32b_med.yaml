@@ -1,0 +1,7 @@
+# Part F completion (Kaggle): the Qwen2.5-32B judge on CUAD (whatever the first session left) and PubMedQA.
+# Same run name, prompt, items and settings as kaggle_attr_qwen32b.yaml; attach the first session's output so finished sentences are skipped.
+name: attr_qwen32b
+task: attribute
+domains: [cuad, pubmedqa]
+llm: {backend: ollama, model: "qwen2.5:32b", num_ctx: 4096, base_url: "http://localhost:11434"}
+workers: 3

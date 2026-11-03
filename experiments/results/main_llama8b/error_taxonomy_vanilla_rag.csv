@@ -1,0 +1,6 @@
+domain,correct,correct_refusal,evidence_ignored,evidence_misread,false_answer,over_refusal_gold_retrieved,over_refusal_no_gold,retrieval_miss,n
+cuad,0.317,0.0,0.053,0.04,0.333,0.0,0.0,0.257,300
+financebench,0.253,0.0,0.08,0.033,0.0,0.0,0.0,0.633,150
+hotpotqa,0.605,0.0,0.15,0.21,0.0,0.01,0.005,0.02,200
+pubmedqa,0.555,0.0,0.335,0.1,0.0,0.0,0.0,0.01,200
+squad2,0.42,0.004,0.014,0.016,0.496,0.0,0.0,0.05,500

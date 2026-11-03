@@ -1,0 +1,16 @@
+system,domain,best_trivial,best_signal,best_auroc,best_lp_signal,best_lp_auroc,checker_auroc,n_signals_beating_trivial,winners
+vanilla_rag,cuad,0.3333333333333333,lp_nolow,0.7334887334887334,lp_nolow,0.7334887334887334,,2,"lp_mean,lp_min"
+vanilla_rag,financebench,0.0,lr_transfer,0.7161758429364063,lp_min,0.706786171574904,,0,
+vanilla_rag,hotpotqa,0.305,lr_lp_transfer,0.6852871754523997,lr_lp_transfer,0.6852871754523997,,0,
+vanilla_rag,pubmedqa,0.15,lp_mean,0.6682273519163764,lp_mean,0.6682273519163764,,0,
+vanilla_rag,squad2,0.5,lp_first_sent,0.8075441639106237,lr_lp_transfer,0.7403202387674438,,1,lp_first_sent
+improved_vanilla,cuad,0.44333333333333336,lp_margin,0.6663160109404587,lp_margin,0.6663160109404587,,0,
+improved_vanilla,financebench,0.0,lp_margin,0.7851851851851852,lp_margin,0.7851851851851852,,6,"lp_mean,lp_min,lp_nolow,lp_margin,lp_first_sent,lr_lp_transfer"
+improved_vanilla,hotpotqa,0.405,lp_margin,0.6450546656496314,lp_margin,0.6450546656496314,,0,
+improved_vanilla,pubmedqa,0.15,lp_mean,0.6682273519163764,lp_mean,0.6682273519163764,,0,
+improved_vanilla,squad2,0.5,lp_first_sent,0.7888020538377317,lp_margin,0.7057235625023597,,1,lp_first_sent
+improved_trust,cuad,0.37333333333333335,lr_lp_transfer,0.6247272727272727,lr_lp_transfer,0.6247272727272727,,0,
+improved_trust,financebench,0.10666666666666667,lr_lp_transfer,0.6858536585365854,lr_lp_transfer,0.6858536585365854,,0,
+improved_trust,hotpotqa,0.385,lp_first_sent,0.5975909537856441,lp_margin,0.5801376597836775,,0,
+improved_trust,pubmedqa,0.0,lp_min,0.674016620498615,lp_min,0.674016620498615,,2,"lp_min,lp_nolow"
+improved_trust,squad2,0.5,lp_margin,0.7854826640059864,lp_margin,0.7854826640059864,,10,"trust_v1,trust_chunk_contra,trust_no_contra,nli_cov_mean,nli_cov_min,lp_mean,lp_min,lp_first,lp_margin,lp_first_sent"

@@ -1,0 +1,13 @@
+# Stage 2 Part E (Kaggle): a new model family, Mistral-Small-24B-Instruct (4-bit, ~14 GB), ONE Ollama server split over both T4s.
+# Fills the 14B -> 27B gap with a fourth family. Same shared subset, systems and settings as kaggle_v2_qwen32b.yaml.
+name: v2_mistral24b
+domains: [squad2, hotpotqa, pubmedqa, cuad, financebench]
+systems: [vanilla_rag, trust_rag, removed_trust, oracle_vanilla, improved_vanilla, removed_vanilla]   # priority order, see kaggle_v2_qwen32b.yaml
+use_plans: true
+limit: 100
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "mistral-small:24b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 3

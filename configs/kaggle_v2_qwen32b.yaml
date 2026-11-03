@@ -1,0 +1,16 @@
+# Stage 2 Part D (Kaggle): a large model, Qwen2.5-32B (4-bit, ~20 GB), ONE Ollama server whose layers are split over both T4s.
+# Completes the same-family ladder Qwen2.5 1.5B -> 14B -> 32B. The question subsample (--limit, set in the notebook) is the same for every model.
+# `systems` is in priority order: the run is cut off cleanly when the time budget ends, so the most important systems finish first.
+name: v2_qwen32b
+domains: [squad2, hotpotqa, pubmedqa, cuad, financebench]
+systems: [vanilla_rag, trust_rag, removed_trust, oracle_vanilla, improved_vanilla, removed_vanilla]
+# order = priority. trust_rag + removed_trust are the natural/removed pair of the refusal-vs-scale test (H4); vanilla_rag + improved_vanilla
+# carry the log-probability tests (H1-H3); oracle_vanilla gives the retrieval-free attribution gap; removed_vanilla is the least important.
+use_plans: true
+limit: 100
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "qwen2.5:32b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 3          # = OLLAMA_NUM_PARALLEL (the notebook reads this value)
