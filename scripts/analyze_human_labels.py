@@ -4,6 +4,8 @@ Protocol (scripts/make_annotation_sheet.py): Claude proposed a label + supportin
 verify every item (Agree / Disagree + correction / Unsure). Report it as "LLM-proposed, human-verified" labels.
 
 python -m scripts.analyze_human_labels --a paper/human_eval/verify_A_<name>.xlsx [--b paper/human_eval/verify_B_<name>.xlsx]
+Both verifiers may check the same subset only (decided 3 Nov 2026: S001-S050). Agreement and method_validation_verified.csv use the verified
+items; method_validation.csv uses all 100 (verified labels where available, Claude's proposals elsewhere).
 python -m scripts.analyze_human_labels --claude-only      # PRELIMINARY: validate against Claude's unverified labels
 Outputs (paper/human_eval/):
   agreement.csv          each verifier vs Claude (% agree, kappa) and verifier vs verifier, overall and per domain
@@ -143,38 +145,49 @@ def main():
     d = base
     for w, s in sheets.items():
         d = d.merge(s.rename(columns={c: f"{c}_{w}" for c in ("verdict", "label", "passages")}), on="item_id")
-    done = np.logical_and.reduce([d[f"label_{w}"].notna() for w in sheets])
-    print(f"verified by {'+'.join(sheets)}: {done.sum()} / {len(d)}")
-    d = d[done].copy()
+    # The verifiers may check only a subset (decided 3 Nov 2026: both check S001-S050, a random, domain-balanced half). Verified = every given
+    # verifier filled the item; agreement is computed on those items; unverified items keep Claude's proposed label.
+    ver = np.logical_and.reduce([d[f"label_{w}"].notna() for w in sheets])
+    print(f"verified by {'+'.join(sheets)}: {ver.sum()} / {len(d)} (the rest keep Claude's proposed labels)")
+    V = d[ver].copy()
 
     rows = []
     for w in sheets:
-        v = d[f"verdict_{w}"]
+        v = V[f"verdict_{w}"]
         print(f"verifier {w}: Agree {v.eq('Agree').mean():.1%}, Disagree {v.eq('Disagree').mean():.1%}, Unsure {v.eq('Unsure').mean():.1%}")
-        rows += agreement_rows(f"Claude vs {w}", d, "claude_label", f"label_{w}")
+        rows += agreement_rows(f"Claude vs {w}", V, "claude_label", f"label_{w}")
     if "B" in sheets:
-        rows += agreement_rows("A vs B", d, "label_A", "label_B")
+        rows += agreement_rows("A vs B", V, "label_A", "label_B")
     ag = pd.DataFrame(rows)
     ag.to_csv(OUT / "agreement.csv", index=False)
-    print("\n=== Agreement ===\n", ag.round(3).to_string(index=False))
+    print("\n=== Agreement (verified items) ===\n", ag.round(3).to_string(index=False))
 
     if "B" in sheets:
-        same = d.label_A == d.label_B
+        same = V.label_A == V.label_B
         if x.adjudicated:
             adj = pd.read_csv(x.adjudicated)[["item_id", "final"]]
-            d = d.merge(adj, on="item_id", how="left")
-            d["gold"] = np.where(same, d.label_A, d.final)
+            V = V.merge(adj, on="item_id", how="left")
+            V["gold"] = np.where(same, V.label_A, V.final)
         else:
-            d[~same][["item_id", "domain", "sentence", "claude_label", "label_A", "label_B", "passages_A", "passages_B"]] \
+            V[~same][["item_id", "domain", "sentence", "claude_label", "label_A", "label_B", "passages_A", "passages_B"]] \
                 .assign(final="").to_csv(OUT / "to_adjudicate.csv", index=False)
             print(f"\n{(~same).sum()} disagreements written to to_adjudicate.csv (until adjudicated, only agreed items are used)")
-            d["gold"] = np.where(same, d.label_A, None)
-        d["gold_passages"] = [parse_passages(a) | parse_passages(b) for a, b in zip(d.passages_A, d.passages_B)]
+            V["gold"] = np.where(same, V.label_A, None)
+        V["gold_passages"] = [parse_passages(a) | parse_passages(b) for a, b in zip(V.passages_A, V.passages_B)]
     else:
-        d["gold"], d["gold_passages"] = d.label_A, d.passages_A.map(parse_passages)
-    val = validate(d)
-    val.to_csv(OUT / "method_validation.csv", index=False)
-    print("\n=== Methods vs verified labels ===\n", val.round(3).to_string(index=False))
+        V["gold"], V["gold_passages"] = V.label_A, V.passages_A.map(parse_passages)
+
+    val = validate(V)
+    val.to_csv(OUT / "method_validation_verified.csv", index=False)
+    print(f"\n=== Methods vs verified labels ({len(V)} items) ===\n", val.round(3).to_string(index=False))
+    if ver.sum() < len(d):   # all items: verified labels where available, Claude's proposals elsewhere
+        U = base[~base.item_id.isin(V.item_id)].assign(gold=lambda t: t.claude_label, gold_passages=lambda t: t.claude_passages.map(parse_passages))
+        cols = list(base.columns) + ["gold", "gold_passages"]
+        allv = validate(pd.concat([V[cols], U[cols]], ignore_index=True))
+        allv.to_csv(OUT / "method_validation.csv", index=False)
+        print(f"\n=== Methods vs all {len(d)} labels (verified where available, Claude's elsewhere) ===\n", allv.round(3).to_string(index=False))
+    else:
+        val.to_csv(OUT / "method_validation.csv", index=False)
 
 
 if __name__ == "__main__":
