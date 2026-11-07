@@ -63,7 +63,7 @@ def read_sheet(path, claude):
     dis = df.verdict.eq("Disagree")
     df["label"] = np.where(dis & df.fix_label.notna(), df.fix_label, df.claude_label)
     df["passages"] = [f if d and pd.notna(f) else c for d, f, c in zip(dis, df.fix_passages, df.claude_passages)]
-    df.loc[df.verdict.isna(), ["label", "passages"]] = np.nan          # not verified yet
+    df.loc[df.verdict.isna() | df.verdict.eq("Unsure"), ["label", "passages"]] = np.nan   # not verified yet, or the verifier could not decide
     return df[["item_id", "verdict", "label", "passages"]]
 
 
