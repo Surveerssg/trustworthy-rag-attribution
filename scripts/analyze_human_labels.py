@@ -4,7 +4,7 @@ Protocol (scripts/make_annotation_sheet.py): Claude proposed a label + supportin
 verify every item (Agree / Disagree + correction / Unsure). Report it as "LLM-proposed, human-verified" labels.
 
 python -m scripts.analyze_human_labels --a paper/human_eval/verify_A_<name>.xlsx [--b paper/human_eval/verify_B_<name>.xlsx]
-Both verifiers may check the same subset only (decided 3 Nov 2026: S001-S050). Agreement and method_validation_verified.csv use the verified
+Both verifiers check all 100 items (decided 7 Nov 2026; a partial set still runs and is reported as such). Agreement and method_validation_verified.csv use the verified
 items; method_validation.csv uses all 100 (verified labels where available, Claude's proposals elsewhere).
 python -m scripts.analyze_human_labels --claude-only      # PRELIMINARY: validate against Claude's unverified labels
 Outputs (paper/human_eval/):
@@ -145,7 +145,7 @@ def main():
     d = base
     for w, s in sheets.items():
         d = d.merge(s.rename(columns={c: f"{c}_{w}" for c in ("verdict", "label", "passages")}), on="item_id")
-    # The verifiers may check only a subset (decided 3 Nov 2026: both check S001-S050, a random, domain-balanced half). Verified = every given
+    # Both verifiers check all 100 items (decided 7 Nov 2026). Verified = every given
     # verifier filled the item; agreement is computed on those items; unverified items keep Claude's proposed label.
     ver = np.logical_and.reduce([d[f"label_{w}"].notna() for w in sheets])
     print(f"verified by {'+'.join(sheets)}: {ver.sum()} / {len(d)} (the rest keep Claude's proposed labels)")
