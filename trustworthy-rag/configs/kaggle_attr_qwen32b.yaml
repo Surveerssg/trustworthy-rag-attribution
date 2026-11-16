@@ -1,0 +1,8 @@
+# Part F (Kaggle): LLM-as-attributor baseline, judge Qwen2.5-32B (4-bit, one Ollama server split over both T4s).
+# Pre-registered: paper/findings/analysis_plan_llm_attributor.md. Items: data/llm_attr/ (python -m scripts.llm_attribute items).
+# `domains` is in priority order: the two financial datasets first, so a cut-off by the time budget loses the least important part.
+name: attr_qwen32b
+task: attribute
+domains: [financebench, tatqa, cuad, pubmedqa, hotpotqa, squad2]
+llm: {backend: ollama, model: "qwen2.5:32b", num_ctx: 4096, base_url: "http://localhost:11434"}
+workers: 3

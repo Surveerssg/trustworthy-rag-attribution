@@ -1,0 +1,7 @@
+# Part F completion (Kaggle): the Qwen2.5-32B judge on HotpotQA and SQuAD 2.0 (not reached by the first session).
+# Same run name, prompt, items and settings as kaggle_attr_qwen32b.yaml; writes different files, so it can run in parallel with the _med job.
+name: attr_qwen32b
+task: attribute
+domains: [hotpotqa, squad2]
+llm: {backend: ollama, model: "qwen2.5:32b", num_ctx: 4096, base_url: "http://localhost:11434"}
+workers: 3

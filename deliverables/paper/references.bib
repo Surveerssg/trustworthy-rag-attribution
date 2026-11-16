@@ -1,0 +1,376 @@
+% References for the IEEE paper draft (27 Oct 2026).
+% The three entries once marked VERIFY (wallat2025correctness, nematov2025source, han2024ragqa) were checked on arXiv / ACL Anthology on 28 Oct 2026.
+% Never put a % comment INSIDE an entry: BibTeX does not support it and drops the entry.
+% All others come from the team's verified literature review / proposal or are standard, widely cited references.
+
+% ---------------------------------------------------------------- RAG, hallucination, surveys
+@inproceedings{lewis2020rag,
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {33},
+  pages     = {9459--9474},
+  year      = {2020}
+}
+@article{ji2023survey,
+  author  = {Ji, Ziwei and Lee, Nayeon and Frieske, Rita and Yu, Tiezheng and Su, Dan and Xu, Yan and Ishii, Etsuko and Bang, Ye Jin and Madotto, Andrea and Fung, Pascale},
+  title   = {Survey of Hallucination in Natural Language Generation},
+  journal = {ACM Computing Surveys},
+  volume  = {55},
+  number  = {12},
+  pages   = {1--38},
+  year    = {2023},
+  doi     = {10.1145/3571730}
+}
+@article{huang2025survey,
+  author  = {Huang, Lei and Yu, Weijiang and Ma, Weitao and Zhong, Weihong and Feng, Zhangyin and Wang, Haotian and Chen, Qianglong and Peng, Weihua and Feng, Xiaocheng and Qin, Bing and Liu, Ting},
+  title   = {A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions},
+  journal = {ACM Transactions on Information Systems},
+  volume  = {43},
+  number  = {2},
+  year    = {2025},
+  doi     = {10.1145/3703155}
+}
+@inproceedings{barnett2024seven,
+  author    = {Barnett, Scott and Kurniawan, Stefanus and Thudumu, Srikanth and Brannelly, Zach and Abdelrazek, Mohamed},
+  title     = {Seven Failure Points When Engineering a Retrieval Augmented Generation System},
+  booktitle = {Proc. IEEE/ACM 3rd Int. Conf. AI Engineering -- Software Engineering for AI (CAIN)},
+  pages     = {194--199},
+  year      = {2024},
+  doi       = {10.1145/3644815.3644945}
+}
+@inproceedings{asai2024selfrag,
+  author    = {Asai, Akari and Wu, Zeqiu and Wang, Yizhong and Sil, Avirup and Hajishirzi, Hannaneh},
+  title     = {Self-{RAG}: Learning to Retrieve, Generate, and Critique through Self-Reflection},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2024}
+}
+@article{liu2024lost,
+  author  = {Liu, Nelson F. and Lin, Kevin and Hewitt, John and Paranjape, Ashwin and Bevilacqua, Michele and Petroni, Fabio and Liang, Percy},
+  title   = {Lost in the Middle: How Language Models Use Long Contexts},
+  journal = {Transactions of the Association for Computational Linguistics},
+  volume  = {12},
+  pages   = {157--173},
+  year    = {2024}
+}
+@inproceedings{chen2024rgb,
+  author    = {Chen, Jiawei and Lin, Hongyu and Han, Xianpei and Sun, Le},
+  title     = {Benchmarking Large Language Models in Retrieval-Augmented Generation},
+  booktitle = {Proc. AAAI Conf. Artificial Intelligence},
+  volume    = {38},
+  number    = {16},
+  pages     = {17754--17762},
+  year      = {2024},
+  doi       = {10.1609/aaai.v38i16.29728}
+}
+
+% ---------------------------------------------------------------- attribution and citation
+@article{rashkin2023ais,
+  author  = {Rashkin, Hannah and Nikolaev, Vitaly and Lamm, Matthew and Aroyo, Lora and Collins, Michael and Das, Dipanjan and Petrov, Slav and Tomar, Gaurav Singh and Turc, Iulia and Reitter, David},
+  title   = {Measuring Attribution in Natural Language Generation Models},
+  journal = {Computational Linguistics},
+  volume  = {49},
+  number  = {4},
+  pages   = {777--840},
+  year    = {2023},
+  doi     = {10.1162/coli_a_00486}
+}
+@inproceedings{gao2023alce,
+  author    = {Gao, Tianyu and Yen, Howard and Yu, Jiatong and Chen, Danqi},
+  title     = {Enabling Large Language Models to Generate Text with Citations},
+  booktitle = {Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {6465--6488},
+  year      = {2023}
+}
+@inproceedings{honovich2022true,
+  author    = {Honovich, Or and Aharoni, Roee and Herzig, Jonathan and Taitelbaum, Hagai and Kukliansy, Doron and Cohen, Vered and Scialom, Thomas and Szpektor, Idan and Hassidim, Avinatan and Matias, Yossi},
+  title     = {{TRUE}: Re-evaluating Factual Consistency Evaluation},
+  booktitle = {Proc. NAACL-HLT},
+  pages     = {3905--3920},
+  year      = {2022}
+}
+@inproceedings{qi2024mirage,
+  author    = {Qi, Jirui and Sarti, Gabriele and Fern{\'a}ndez, Raquel and Bisazza, Arianna},
+  title     = {Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation},
+  booktitle = {Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2024}
+}
+@misc{wallat2025correctness,
+  author = {Wallat, Jonas and Heuss, Maria and de Rijke, Maarten and Anand, Avishek},
+  title  = {Correctness is not Faithfulness in {RAG} Attributions},
+  year   = {2024},
+  note   = {arXiv:2412.18004}
+}
+@inproceedings{song2025trust,
+  author    = {Song, Maojia and Sim, Shang Hong and Bhardwaj, Rishabh and Chieu, Hai Leong and Majumder, Navonil and Poria, Soujanya},
+  title     = {Measuring and Enhancing Trustworthiness of {LLMs} in {RAG} through Grounded Attributions and Learning to Refuse},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2025}
+}
+@misc{nematov2025source,
+  author = {Nematov, Ikhtiyor and Kalai, Tarik and Kuzmenko, Elizaveta and Fugagnoli, Gabriele and Sacharidis, Dimitris and Hose, Katja and Sagi, Tomer},
+  title  = {Source Attribution in Retrieval-Augmented Generation},
+  year   = {2025},
+  note   = {arXiv:2507.04480}
+}
+
+% ---------------------------------------------------------------- hallucination detection and confidence
+@inproceedings{manakul2023selfcheck,
+  author    = {Manakul, Potsawee and Liusie, Adian and Gales, Mark J. F.},
+  title     = {{SelfCheckGPT}: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models},
+  booktitle = {Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {9004--9017},
+  year      = {2023}
+}
+@inproceedings{niu2024ragtruth,
+  author    = {Niu, Cheng and Wu, Yuanhao and Zhu, Juno and Xu, Siliang and Shum, Kashun and Zhong, Randy and Song, Juntong and Zhang, Tong},
+  title     = {{RAGTruth}: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models},
+  booktitle = {Proc. 62nd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {10862--10878},
+  year      = {2024}
+}
+@inproceedings{es2024ragas,
+  author    = {Es, Shahul and James, Jithin and Espinosa-Anke, Luis and Schockaert, Steven},
+  title     = {{RAGAS}: Automated Evaluation of Retrieval Augmented Generation},
+  booktitle = {Proc. EACL: System Demonstrations},
+  pages     = {150--158},
+  year      = {2024}
+}
+@article{farquhar2024semantic,
+  author  = {Farquhar, Sebastian and Kossen, Jannik and Kuhn, Lorenz and Gal, Yarin},
+  title   = {Detecting Hallucinations in Large Language Models Using Semantic Entropy},
+  journal = {Nature},
+  volume  = {630},
+  pages   = {625--630},
+  year    = {2024}
+}
+@misc{kadavath2022know,
+  author = {Kadavath, Saurav and others},
+  title  = {Language Models (Mostly) Know What They Know},
+  year   = {2022},
+  note   = {arXiv:2207.05221}
+}
+@inproceedings{soudani2025uncertainty,
+  author    = {Soudani, Heydar and Kanoulas, Evangelos and Hasibi, Faegheh},
+  title     = {Why Uncertainty Estimation Methods Fall Short in {RAG}: An Axiomatic Analysis},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2025},
+  year      = {2025}
+}
+@inproceedings{joren2025sufficient,
+  author    = {Joren, Hailey and Zhang, Jianyi and Ferng, Chun-Sung and Juan, Da-Cheng and Taly, Ankur and Rashtchian, Cyrus},
+  title     = {Sufficient Context: A New Lens on Retrieval Augmented Generation Systems},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2025}
+}
+@inproceedings{geifman2017selective,
+  author    = {Geifman, Yonatan and El-Yaniv, Ran},
+  title     = {Selective Classification for Deep Neural Networks},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {30},
+  year      = {2017}
+}
+@inproceedings{geifman2019bias,
+  author    = {Geifman, Yonatan and Uziel, Guy and El-Yaniv, Ran},
+  title     = {Bias-Reduced Uncertainty Estimation for Deep Neural Classifiers},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2019}
+}
+@inproceedings{angelopoulos2024crc,
+  author    = {Angelopoulos, Anastasios N. and Bates, Stephen and Fisch, Adam and Lei, Lihua and Schuster, Tal},
+  title     = {Conformal Risk Control},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2024}
+}
+
+% ---------------------------------------------------------------- domain-specific RAG and legal evidence
+@article{dahl2024legal,
+  author  = {Dahl, Matthew and Magesh, Varun and Suzgun, Mirac and Ho, Daniel E.},
+  title   = {Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models},
+  journal = {Journal of Legal Analysis},
+  volume  = {16},
+  number  = {1},
+  pages   = {64--93},
+  year    = {2024},
+  doi     = {10.1093/jla/laae003}
+}
+@article{magesh2025legal,
+  author  = {Magesh, Varun and Surani, Faiz and Dahl, Matthew and Suzgun, Mirac and Manning, Christopher D. and Ho, Daniel E.},
+  title   = {Hallucination-Free? Assessing the Reliability of Leading {AI} Legal Research Tools},
+  journal = {Journal of Empirical Legal Studies},
+  volume  = {22},
+  pages   = {216--242},
+  year    = {2025},
+  doi     = {10.1111/jels.12413}
+}
+@misc{pipitone2024legalbenchrag,
+  author = {Pipitone, Nicholas and Alami, Ghita Houir},
+  title  = {{LegalBench-RAG}: A Benchmark for Retrieval-Augmented Generation in the Legal Domain},
+  year   = {2024},
+  note   = {arXiv:2408.10343}
+}
+@inproceedings{xiong2024medrag,
+  author    = {Xiong, Guangzhi and Jin, Qiao and Lu, Zhiyong and Zhang, Aidong},
+  title     = {Benchmarking Retrieval-Augmented Generation for Medicine},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+  pages     = {6233--6251},
+  year      = {2024}
+}
+@misc{friel2024ragbench,
+  author = {Friel, Robert and Belyi, Masha and Sanyal, Atindriyo},
+  title  = {{RAGBench}: Explainable Benchmark for Retrieval-Augmented Generation Systems},
+  year   = {2024},
+  note   = {arXiv:2407.11005}
+}
+@inproceedings{han2024ragqa,
+  author    = {Han, Rujun and Zhang, Yuhao and Qi, Peng and Xu, Yumo and Wang, Jenyuan and Liu, Lan and others},
+  title     = {{RAG-QA} Arena: Evaluating Domain Robustness for Long-form Retrieval Augmented Question Answering},
+  booktitle = {Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2024}
+}
+
+% ---------------------------------------------------------------- datasets
+@inproceedings{yang2018hotpotqa,
+  author    = {Yang, Zhilin and Qi, Peng and Zhang, Saizheng and Bengio, Yoshua and Cohen, William and Salakhutdinov, Ruslan and Manning, Christopher D.},
+  title     = {{HotpotQA}: A Dataset for Diverse, Explainable Multi-hop Question Answering},
+  booktitle = {Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {2369--2380},
+  year      = {2018}
+}
+@inproceedings{rajpurkar2018squad2,
+  author    = {Rajpurkar, Pranav and Jia, Robin and Liang, Percy},
+  title     = {Know What You Don't Know: Unanswerable Questions for {SQuAD}},
+  booktitle = {Proc. 56th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {784--789},
+  year      = {2018}
+}
+@inproceedings{jin2019pubmedqa,
+  author    = {Jin, Qiao and Dhingra, Bhuwan and Liu, Zhengping and Cohen, William and Lu, Xinghua},
+  title     = {{PubMedQA}: A Dataset for Biomedical Research Question Answering},
+  booktitle = {Proc. EMNLP-IJCNLP},
+  pages     = {2567--2577},
+  year      = {2019}
+}
+@inproceedings{hendrycks2021cuad,
+  author    = {Hendrycks, Dan and Burns, Collin and Chen, Anya and Ball, Spencer},
+  title     = {{CUAD}: An Expert-Annotated {NLP} Dataset for Legal Contract Review},
+  booktitle = {Proc. NeurIPS Datasets and Benchmarks Track},
+  year      = {2021}
+}
+@misc{islam2023financebench,
+  author = {Islam, Pranab and Kannappan, Anand and Kiela, Douwe and Qian, Rebecca and Scherrer, Nino and Vidgen, Bertie},
+  title  = {{FinanceBench}: A New Benchmark for Financial Question Answering},
+  year   = {2023},
+  note   = {arXiv:2311.11944}
+}
+
+% ---------------------------------------------------------------- models and tools
+@misc{qwen2024qwen25,
+  author = {{Qwen Team}},
+  title  = {{Qwen2.5} Technical Report},
+  year   = {2024},
+  note   = {arXiv:2412.15115}
+}
+@misc{grattafiori2024llama3,
+  author = {Grattafiori, Aaron and others},
+  title  = {The {Llama} 3 Herd of Models},
+  year   = {2024},
+  note   = {arXiv:2407.21783}
+}
+@misc{gemma2025gemma3,
+  author = {{Gemma Team}},
+  title  = {{Gemma} 3 Technical Report},
+  year   = {2025},
+  note   = {arXiv:2503.19786}
+}
+@misc{abdin2024phi4,
+  author = {Abdin, Marah and others},
+  title  = {{Phi-4} Technical Report},
+  year   = {2024},
+  note   = {arXiv:2412.08905}
+}
+@misc{mistral2025small3,
+  author = {{Mistral AI}},
+  title  = {{Mistral Small 3}},
+  year   = {2025},
+  note   = {Model release, \url{https://mistral.ai/news/mistral-small-3}}
+}
+@article{krithara2023bioasq,
+  author  = {Krithara, Anastasia and Nentidis, Anastasios and Bougiatiotis, Konstantinos and Paliouras, Georgios},
+  title   = {{BioASQ-QA}: A Manually Curated Corpus for Biomedical Question Answering},
+  journal = {Scientific Data},
+  volume  = {10},
+  pages   = {170},
+  year    = {2023}
+}
+@inproceedings{zhu2021tatqa,
+  author    = {Zhu, Fengbin and Lei, Wenqiang and Huang, Youcheng and Wang, Chao and Zhang, Shuo and Lv, Jiancheng and Feng, Fuli and Chua, Tat-Seng},
+  title     = {{TAT-QA}: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance},
+  booktitle = {Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing},
+  pages     = {3277--3287},
+  year      = {2021}
+}
+@inproceedings{reimers2019sbert,
+  author    = {Reimers, Nils and Gurevych, Iryna},
+  title     = {Sentence-{BERT}: Sentence Embeddings using {Siamese} {BERT}-Networks},
+  booktitle = {Proc. EMNLP-IJCNLP},
+  pages     = {3982--3992},
+  year      = {2019}
+}
+@inproceedings{wang2020minilm,
+  author    = {Wang, Wenhui and Wei, Furu and Dong, Li and Bao, Hangbo and Yang, Nan and Zhou, Ming},
+  title     = {{MiniLM}: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {33},
+  year      = {2020}
+}
+@inproceedings{he2023debertav3,
+  author    = {He, Pengcheng and Gao, Jianfeng and Chen, Weizhu},
+  title     = {{DeBERTaV3}: Improving {DeBERTa} using {ELECTRA}-Style Pre-Training with Gradient-Disentangled Embedding Sharing},
+  booktitle = {Proc. Int. Conf. Learning Representations (ICLR)},
+  year      = {2023}
+}
+@misc{warner2024modernbert,
+  author = {Warner, Benjamin and others},
+  title  = {Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference},
+  year   = {2024},
+  note   = {arXiv:2412.13663 (ModernBERT)}
+}
+@article{robertson2009bm25,
+  author  = {Robertson, Stephen and Zaragoza, Hugo},
+  title   = {The Probabilistic Relevance Framework: {BM25} and Beyond},
+  journal = {Foundations and Trends in Information Retrieval},
+  volume  = {3},
+  number  = {4},
+  pages   = {333--389},
+  year    = {2009}
+}
+@inproceedings{cormack2009rrf,
+  author    = {Cormack, Gordon V. and Clarke, Charles L. A. and B{\"u}ttcher, Stefan},
+  title     = {Reciprocal Rank Fusion Outperforms {Condorcet} and Individual Rank Learning Methods},
+  booktitle = {Proc. 32nd Int. ACM SIGIR Conf.},
+  pages     = {758--759},
+  year      = {2009}
+}
+@misc{nogueira2019rerank,
+  author = {Nogueira, Rodrigo and Cho, Kyunghyun},
+  title  = {Passage Re-ranking with {BERT}},
+  year   = {2019},
+  note   = {arXiv:1901.04085}
+}
+
+% ---------------------------------------------------------------- statistics
+@article{benjamini1995fdr,
+  author  = {Benjamini, Yoav and Hochberg, Yosef},
+  title   = {Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing},
+  journal = {Journal of the Royal Statistical Society: Series B},
+  volume  = {57},
+  number  = {1},
+  pages   = {289--300},
+  year    = {1995}
+}
+@book{efron1993bootstrap,
+  author    = {Efron, Bradley and Tibshirani, Robert J.},
+  title     = {An Introduction to the Bootstrap},
+  publisher = {Chapman \& Hall},
+  year      = {1993}
+}

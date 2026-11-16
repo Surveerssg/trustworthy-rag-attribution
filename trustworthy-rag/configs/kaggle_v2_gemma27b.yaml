@@ -1,0 +1,15 @@
+# Stage 2 Part D (Kaggle): a second large model from a different family, Gemma-3-27B (4-bit, ~17 GB), ONE Ollama server split over both T4s.
+# Google's open-weight sibling of Gemini. Same systems, subsample and settings as kaggle_v2_qwen32b.yaml.
+# If the notebook stops with "no logprobs" for this model, set D_NO_LOGPROBS = True in its first cell and run again: accuracy, attribution and
+# refusal results stay valid, only the log-probability analyses (H1-H3) are lost for this model.
+name: v2_gemma27b
+domains: [squad2, hotpotqa, pubmedqa, cuad, financebench]
+systems: [vanilla_rag, trust_rag, removed_trust, oracle_vanilla, improved_vanilla, removed_vanilla]   # priority order, see kaggle_v2_qwen32b.yaml
+use_plans: true
+limit: 100
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "gemma3:27b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11434", logprobs: true}
+workers: 3

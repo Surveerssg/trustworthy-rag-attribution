@@ -1,0 +1,12 @@
+# Stage 2 (Kaggle): regenerated WITH token log-probabilities + improved-retrieval arm + extension conditions.
+name: v2_llama8b
+domains: [squad2, hotpotqa, pubmedqa, cuad, financebench]
+systems: [vanilla_rag, improved_vanilla, improved_trust, removed_trust, removed_vanilla, oracle_vanilla]   # core first
+use_plans: true
+limit: null
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "llama3.1:8b", max_tokens: 200, num_ctx: 4096, base_url: "http://localhost:11435", logprobs: true}
+workers: 4

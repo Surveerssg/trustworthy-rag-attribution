@@ -1,0 +1,6 @@
+# Part F (Kaggle): LLM-as-attributor baseline, cheap judge Llama-3.1-8B (4-bit). Same items, prompt and order as kaggle_attr_qwen32b.yaml.
+name: attr_llama8b
+task: attribute
+domains: [financebench, tatqa, cuad, pubmedqa, hotpotqa, squad2]
+llm: {backend: ollama, model: "llama3.1:8b", num_ctx: 4096, base_url: "http://localhost:11434"}
+workers: 4

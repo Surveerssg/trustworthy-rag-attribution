@@ -1,0 +1,36 @@
+# ALLOWLIST: everything is ignored unless listed below. Only code, configs, notebooks, tests, the pre-registered plans and findings, and the
+# aggregate result tables are public. Kept out on purpose:
+#   data/ (third-party datasets; BioASQ is a registered download and must never be published), experiments/runs/ (model answers that quote
+#   dataset passages, 0.8 GB), experiments/kaggle_raw/, kaggle_logs/, logs/ (contain local paths), paper/human_eval/ (verification in progress),
+#   dist/, CLAUDE.md, .env (secrets).
+/*
+!/.gitignore
+!/.env.example
+!/LICENSE
+!/README.md
+!/requirements.txt
+!/src/
+!/scripts/
+!/configs/
+!/kaggle/
+!/tests/
+!/paper/
+!/experiments/
+
+/paper/*
+!/paper/findings/
+!/paper/figures/
+!/paper/tables/
+
+/experiments/*
+!/experiments/results/
+
+# never, wherever they appear
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.env.*
+!/.env.example
+*.key
+*.sqlite

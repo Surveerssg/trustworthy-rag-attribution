@@ -1,0 +1,11 @@
+# Main cross-domain run, small local generator (fits fully in 2GB VRAM, ~13s/query).
+name: main_qwen1.5b
+domains: [squad2, hotpotqa, pubmedqa, cuad, financebench]
+systems: [trust_rag, vanilla_rag, closed_book, removed_trust, removed_vanilla, oracle_trust, oracle_vanilla]   # core plan first (mid-sem base), then extensions
+limit: null          # full prepared sets: hotpot 200, pubmed 200, cuad 200+100 unans, finbench 150, squad2 250+250
+seed: 0
+k: 5
+chunk_words: 180
+embed_model: sentence-transformers/all-MiniLM-L6-v2
+llm: {backend: ollama, model: "qwen2.5:1.5b", max_tokens: 200, num_ctx: 4096}
+workers: 1
