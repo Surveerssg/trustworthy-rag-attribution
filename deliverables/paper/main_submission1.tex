@@ -45,7 +45,7 @@ medical errors come from the generator; (ii) even with the gold passage guarante
 0.32--0.39 on financial filings for every model, and the best attribution method reverses by domain; (iii) the collapse replicates on a second
 financial dataset (TAT-QA, 7 of 7 models, pre-registered) and has an identifiable cause: similarity fails on table cells, and the decisive signal is
 the numbers. A label-free, model-free number-aware scorer raises financial attribution by 0.12--0.24, confirmed on held-out TAT-QA data (0.51 to 0.75)
-without changing the other domains. LLM judges (8B and 32B, equally good) remain more accurate (0.69--0.80 on financial text), and the free scorer
+without changing the other domains. LLM judges (8B and 32B, equally good) remain more accurate (0.69--0.79 on financial text), and the free scorer
 closes 67--87\% of the gap to them; (iv) on a second medical dataset with sentence-level evidence (BioASQ), attribution is 0.62--0.71, well below
 what PubMedQA's whole-abstract gold suggests, for all seven models; (v) refusing when evidence is missing improves with model size and transfers
 across four domains, but over-refusal does not decrease; (vi) token log-probabilities are the best single signal for answering only the most confident half of questions, but do not become
@@ -397,7 +397,7 @@ shows that labels matter only where the domain behaves differently. On the four 
 the best fixed weight, and small label budgets do not help (they occasionally pick a worse weight). On FinanceBench, 20 labels raise attribution
 accuracy from 0.37 to 0.51, 87\% of the attainable gain (the ceiling, 0.53, equals pure \m{nli\_set}), and 50 labels reach the ceiling; with 5--10
 labels an unlucky draw gains almost nothing. The mixture therefore does not beat the best single method within a domain: its value is choosing the
-right method for each domain from a handful of labelled questions. This analysis is experimental; the 20-label recipe was fixed before it was run.
+right method for each domain from a handful of labelled questions. This analysis is exploratory; the 20-label recipe was fixed before it was run.
 
 \begin{table}[!t]
 \caption{Held-Out Attribution Accuracy (Oracle Condition) vs.\ the Number of Labelled Questions Used to Choose the Mixture Weight}
@@ -434,7 +434,7 @@ best with the causal influence in 9 of 10 model--domain cells (Spearman 0.11--0.
 \label{sec:why}
 We diagnosed the FinanceBench failures without regenerating anything: the 842 oracle answers of the seven models stay fixed, and only the passage
 text given to the attribution scorer is changed, identically for gold and distractor passages. This analysis was designed after looking at
-FinanceBench and is experimental; its held-out test is TAT-QA (Section~\ref{sec:tatqa}).
+FinanceBench and is exploratory; its held-out test is TAT-QA (Section~\ref{sec:tatqa}).
 
 \textbf{Diagnosis.} PDF text extraction puts every table cell on its own line, so the sentence splitter hands the similarity scorer fragments such as
 ``1,488'' or ``\$''. When at least 30\% of the gold passage's lines are bare numbers (600 of 842 answers), \m{sim\_sent} falls to 0.28, against 0.54
@@ -474,7 +474,7 @@ Number match + \m{sim\_sent} & .579 & .889 & .882 \\
 Number match + mixture & \textbf{.645} & .889 & .882 \\
 \bottomrule
 \multicolumn{4}{@{}p{0.95\columnwidth}@{}}{\scriptsize Answers and contexts are not regenerated; only the scorer's view of the passages changes.
-HotpotQA and SQuAD are prose controls. Experimental on FinanceBench; confirmed on TAT-QA (T7, Table~\ref{tab:tatqa}).}
+HotpotQA and SQuAD are prose controls. Exploratory on FinanceBench; confirmed on TAT-QA (T7, Table~\ref{tab:tatqa}).}
 \end{tabular}
 \end{table}
 
@@ -545,7 +545,7 @@ pick is therefore read from the written reply rather than from the first token's
 up to 0.05 (PubMedQA) and none of the verdicts below; under it the 32B judge leads the 8B judge by 0.041 [0.028, 0.055], significant but below our
 0.05 threshold.
 
-Table~\ref{tab:judge} shows that LLM judges are the most accurate attributors and do not collapse on financial text (0.69--0.80). The 32B judge beats
+Table~\ref{tab:judge} shows that LLM judges are the most accurate attributors and do not collapse on financial text (0.69--0.79). The 32B judge beats
 sentence similarity on FinanceBench (+0.340), TAT-QA (+0.284), CUAD (+0.094) and HotpotQA (+0.055), all Holm $p<0.01$, but not on SQuAD (+0.027) or
 PubMedQA ($-$0.029), where it declines to name a passage for 16\% of sentences (often a bare ``Maybe''); L1 holds in 4 of 6 domains. A 4$\times$
 larger judge is not better (L4: +0.003 [$-$0.010, 0.015]). The free number-aware scorer is \emph{not} equivalent to a judge (L2 fails): the 32B judge
@@ -748,7 +748,7 @@ Published rows: point estimates only.}
 To check the automatic support and attribution labels, we sampled 100 answer sentences (20 per domain) from the vanilla and oracle runs of the 1.5B and
 8B models. Each sentence was labelled \emph{Supported}, \emph{Partially supported} or \emph{Not supported}, together with its supporting passages and a
 short quoted reason. The labels were proposed by an LLM (Claude), which is not one of the evaluated generators, and verified independently by two of the authors, who are not
-domain experts. The verifiers agreed with 93.8\% and 82.7\% of the proposed labels (Cohen's kappa between them 0.560); disagreements were resolved by discussion.
+domain experts. The verifiers agreed with 91.0\% and 82.0\% of the proposed labels (Cohen's kappa between them 0.369); disagreements were resolved by discussion.
 Of the 100 sentences, 55 are supported, 29 partially supported and 16 not supported; 9 of the 16 unsupported sentences are from FinanceBench.
 Table~\ref{tab:human} compares the methods with these labels. Entailment-based methods detect unsupported sentences better than similarity (AUROC
 0.704 for \m{nli\_window} and 0.713 for \m{nli\_set}, against 0.673 for \m{sim\_sent}), which supports keeping NLI for verification. For

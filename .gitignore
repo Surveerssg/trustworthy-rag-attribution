@@ -3,6 +3,8 @@
 #   data/ (third-party datasets; BioASQ is a registered download and must never be published), experiments/runs/ (model answers that quote
 #   dataset passages, 0.8 GB), experiments/kaggle_raw/, kaggle_logs/, logs/ (contain local paths), paper/human_eval/ (verification in progress),
 #   dist/, CLAUDE.md, .env (secrets).
+#   trustworthy-rag/ is a local working copy mirror; the canonical code lives at the repo root.
+#   deliverables/ contains local working manuscript files; only the active submission tex is tracked.
 /*
 !/.gitignore
 !/.env.example
@@ -16,6 +18,7 @@
 !/tests/
 !/paper/
 !/experiments/
+!/deliverables/
 
 /paper/*
 !/paper/findings/
@@ -24,6 +27,16 @@
 
 /experiments/*
 !/experiments/results/
+
+# deliverables: only track the active submission source files, not working copies or compiled outputs
+/deliverables/midsem/
+/deliverables/manuscript/
+/deliverables/paper/*.pdf
+/deliverables/paper/*.zip
+/deliverables/paper/main_original.tex
+/deliverables/paper/main.tex
+/deliverables/paper/LRE_ADAPTATION_PLAN.md
+/deliverables/paper/README.md
 
 # never, wherever they appear
 __pycache__/

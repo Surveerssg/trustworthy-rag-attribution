@@ -28,7 +28,7 @@ guaranteed (oracle) and with it removed, which separates retrieval errors from g
 3. **Cause and a free fix.** PDF tables give the similarity scorer one-cell fragments, and NLI cannot verify computed figures. A label-free,
    model-free **number-aware scorer** raises FinanceBench attribution from 0.35 to 0.58 (0.53 to 0.65 combined with the per-domain mixture) and is
    confirmed on held-out TAT-QA (0.51 to 0.75), with no change on other domains.
-4. **LLM judges** (Llama-3.1-8B, Qwen2.5-32B) are the most accurate attributors (0.69 to 0.80 on finance); the 32B judge is no better than
+4. **LLM judges** (Llama-3.1-8B, Qwen2.5-32B) are the most accurate attributors (0.69 to 0.79 on finance); the 32B judge is no better than
    the 8B one. The free scorer does not match them but closes 67 to 87% of the gap at no cost.
 5. **Sentence-level medical evidence (BioASQ)** gives lower attribution than PubMedQA for all seven models (0.62 to 0.71); refusal transfers.
 6. **Refusal** when evidence is removed improves with model size (balanced accuracy 0.54 at 1.5B, 0.77 to 0.83 at 14-32B); over-refusal does not.
